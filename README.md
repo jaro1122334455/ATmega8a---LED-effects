@@ -26,11 +26,12 @@ To work you need:
 Connect everything like on the picture:
 
 ![Alt breadboard](images/atmega_connections.jpg)
+This is minimum connecting setup without capacitors on power supply, resistor on reset pin, and external oscilator.
 
 I decide to set internal oscilator to maximum value 8MHz. To do this you need to set fusebits.
 
 ```Bash
-avrdude -c PROGRAMMER_TYPE -p m8 -U lfuse:w:0xE4:m -U hfuse:w:0xD9:m
+avrdude -c usbasp -p m8 -U lfuse:w:0xE4:m -U hfuse:w:0xD9:m
 ```
 
 
