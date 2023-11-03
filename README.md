@@ -4,7 +4,7 @@ Trying to configure VSCode to work with AVR microcontrolers and create some visu
 
 ## Configuration
 
-To work we need:
+To work you need:
 - Hardware
   - one of AVR microcontroler (e.g. ATmega8), 
   - usbasp programmer, 
@@ -22,9 +22,16 @@ To work we need:
     sudo dnf install avr-gcc avr-libc avrdude
     ```
 
+
 Connect everything like on the picture:
 
 ![Alt breadboard](images/atmega_connections.jpg)
+
+I decide to set internal oscilator to maximum value 8MHz. To do this you need to set fusebits.
+
+```Bash
+avrdude -c PROGRAMMER_TYPE -p m8 -U lfuse:w:0xE4:m -U hfuse:w:0xD9:m
+```
 
 
 ## Launching program
